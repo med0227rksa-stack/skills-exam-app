@@ -1,0 +1,367 @@
+:root {
+  --color-bg: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-border: #dfe3e8;
+  --color-text: #1f2937;
+  --color-text-sub: #5f6b7a;
+  --color-primary: #1a56a0;
+  --color-primary-dark: #12406f;
+  --color-good: #1a7f4b;
+  --color-good-bg: #e7f6ee;
+  --color-bad: #b3261e;
+  --color-bad-bg: #fceceb;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Yu Gothic UI", "Meiryo", "Hiragino Kaku Gothic ProN", "Segoe UI", sans-serif;
+  line-height: 1.7;
+}
+
+.app-header {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 18px 16px;
+}
+
+.app-header__inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.app-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.app-main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+.app-footer {
+  text-align: center;
+  color: var(--color-text-sub);
+  font-size: 0.75rem;
+  padding: 20px 16px 30px;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.card-title {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+  text-align: left;
+  padding: 16px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: #fafbfc;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  font-family: inherit;
+}
+
+.menu-btn:hover {
+  border-color: var(--color-primary);
+  background: #eef4fb;
+}
+
+.menu-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.menu-btn__title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.menu-btn__desc {
+  font-size: 0.82rem;
+  color: var(--color-text-sub);
+}
+
+.note-box {
+  margin-top: 18px;
+  padding: 12px 14px;
+  background: #fff8e6;
+  border: 1px solid #f0dca0;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: #6b5a13;
+}
+
+.quiz-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+}
+
+.badge-progress {
+  background: #e8eefb;
+  color: var(--color-primary-dark);
+}
+
+.badge-source {
+  background: #eef1f4;
+  color: var(--color-text-sub);
+}
+
+.quiz-question {
+  font-size: 1.05rem;
+  white-space: pre-wrap;
+  margin: 10px 0 18px;
+}
+
+.quiz-image-wrap {
+  margin: 0 0 18px;
+  text-align: center;
+}
+
+.quiz-image {
+  max-width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.choice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.choice-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  cursor: pointer;
+  background: #fafbfc;
+}
+
+.choice-item:hover {
+  border-color: var(--color-primary);
+}
+
+.choice-item input {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.choice-item__key {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-right: 4px;
+}
+
+.choice-item.is-selected {
+  border-color: var(--color-primary);
+  background: #eef4fb;
+}
+
+.choice-item.is-correct {
+  border-color: var(--color-good);
+  background: var(--color-good-bg);
+}
+
+.choice-item.is-incorrect {
+  border-color: var(--color-bad);
+  background: var(--color-bad-bg);
+}
+
+.quiz-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.quiz-actions--column {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.btn {
+  display: inline-block;
+  padding: 11px 22px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-primary:disabled {
+  background: #a9bfd7;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--color-primary-dark);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background: #eef4fb;
+}
+
+.feedback-box {
+  margin-top: 6px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--color-border);
+}
+
+.feedback-result {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.feedback-result.is-correct {
+  color: var(--color-good);
+}
+
+.feedback-result.is-incorrect {
+  color: var(--color-bad);
+}
+
+.feedback-line {
+  margin: 0 0 12px;
+}
+
+.feedback-explanation {
+  background: #f7f9fb;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.feedback-explanation p {
+  margin: 8px 0 0;
+  white-space: pre-wrap;
+}
+
+.confidence-note {
+  margin-top: 10px !important;
+  font-size: 0.8rem;
+  color: var(--color-text-sub);
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0 28px;
+}
+
+.result-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #fafbfc;
+}
+
+.result-label {
+  font-size: 0.82rem;
+  color: var(--color-text-sub);
+}
+
+.result-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.result-value--good {
+  color: var(--color-good);
+}
+
+.result-value--bad {
+  color: var(--color-bad);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--color-text-sub);
+  padding: 30px 10px;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 18px;
+  }
+  .app-title {
+    font-size: 1.1rem;
+  }
+  .result-value {
+    font-size: 1.3rem;
+  }
+}

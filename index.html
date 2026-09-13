@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技能検定 学科試験 過去問学習アプリ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header__inner">
+    <h1 class="app-title">技能検定 学科試験 過去問学習</h1>
+    <p class="app-subtitle">数値制御タレットパンチプレス板金作業 2級（デモ版）</p>
+  </div>
+</header>
+
+<main class="app-main">
+
+  <!-- トップ画面 -->
+  <section id="screen-top" class="screen">
+    <div class="card">
+      <h2 class="card-title">学習メニューを選んでください</h2>
+
+      <div class="menu-list">
+        <button class="menu-btn" data-mode="year" data-year="r06">
+          <span class="menu-btn__title">令和6年度を解く</span>
+          <span class="menu-btn__desc">令和6年度の問題を、A群→B群の順番どおりに出題します（全50問）</span>
+        </button>
+
+        <button class="menu-btn" data-mode="random">
+          <span class="menu-btn__title">ランダムに解く</span>
+          <span class="menu-btn__desc">登録されている全年度の問題からランダムに出題します</span>
+        </button>
+
+        <button class="menu-btn" data-mode="wrong">
+          <span class="menu-btn__title">間違えた問題を解く</span>
+          <span class="menu-btn__desc" id="wrong-count-desc">これまでに間違えた問題だけを再出題します</span>
+        </button>
+      </div>
+
+      <p class="note-box">
+        ※ このアプリの解説はAIが公式解答をもとに作成した参考情報です。<br>
+        正式な学習・研修でご利用の際は、事前に内容を人が確認してください。
+      </p>
+    </div>
+  </section>
+
+  <!-- 問題画面 -->
+  <section id="screen-quiz" class="screen" hidden>
+    <div class="card">
+      <div class="quiz-meta">
+        <span id="quiz-progress" class="badge badge-progress"></span>
+        <span id="quiz-source" class="badge badge-source"></span>
+      </div>
+
+      <p id="quiz-question" class="quiz-question"></p>
+
+      <div id="quiz-image-wrap" class="quiz-image-wrap" hidden>
+        <img id="quiz-image" class="quiz-image" alt="問題の図">
+      </div>
+
+      <form id="quiz-choices" class="choice-list"></form>
+
+      <div class="quiz-actions">
+        <button id="btn-answer" class="btn btn-primary" disabled>回答する</button>
+      </div>
+
+      <div id="quiz-feedback" class="feedback-box" hidden>
+        <p id="feedback-result" class="feedback-result"></p>
+        <p class="feedback-line"><strong>公式の正解：</strong><span id="feedback-correct"></span></p>
+        <div class="feedback-explanation">
+          <strong>解説：</strong>
+          <p id="feedback-explanation-text"></p>
+          <p id="feedback-confidence-note" class="confidence-note" hidden></p>
+        </div>
+        <div class="quiz-actions">
+          <button id="btn-next" class="btn btn-primary">次の問題へ</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 結果画面 -->
+  <section id="screen-result" class="screen" hidden>
+    <div class="card">
+      <h2 class="card-title">結果</h2>
+      <div class="result-grid">
+        <div class="result-item">
+          <span class="result-label">問題数</span>
+          <span id="result-total" class="result-value">0</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">正解数</span>
+          <span id="result-correct" class="result-value result-value--good">0</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">不正解数</span>
+          <span id="result-wrong" class="result-value result-value--bad">0</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">正答率</span>
+          <span id="result-rate" class="result-value">0%</span>
+        </div>
+      </div>
+
+      <div class="quiz-actions quiz-actions--column">
+        <button id="btn-retry-wrong" class="btn btn-secondary" hidden>間違えた問題をもう一度解く</button>
+        <button id="btn-back-top" class="btn btn-primary">トップ画面に戻る</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+  <p>社内学習用デモ版｜元資料：中央職業能力開発協会 公開過去問（令和6年度）</p>
+</footer>
+
+<script src="data/questions-r06.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
